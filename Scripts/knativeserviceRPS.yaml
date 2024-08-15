@@ -1,0 +1,35 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: helloworld-go
+  namespace: default
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/window: "900s"
+        autoscaling.knative.dev/target: "5"
+        autoscaling.knative.dev/target-burst-capacity: "900"
+        autoscaling.knative.dev/target-utilization-percentage: "100"
+        autoscaling.knative.dev/panic-window-percentage: "100.0"
+        autoscaling.knative.dev/metric: "rps"
+        autoscaling.knative.dev/scale-to-zero-pod-retention-period: "1s"
+    spec:
+      timeoutSeconds: 2
+      idleTimeoutSeconds: 2
+      responseStartTimeoutSeconds: 2
+      containers:
+        - image: alamfaisal654/succ3rps:1.1.1
+          ports: 
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040 
+              path: "/alive"
+            initialDelaySeconds: 60
+          readinessProbe:
+            httpGet:
+              port: 3040 
+              path: "/alive"
+            initialDelaySeconds: 60
+

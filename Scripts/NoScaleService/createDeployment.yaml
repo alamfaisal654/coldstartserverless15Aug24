@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment
+  labels:
+    app: myapp
+    tier: frontend
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: frontend
+  template:
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2
+
