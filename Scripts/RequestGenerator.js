@@ -81,17 +81,20 @@ setInterval(function () {
   });
 }, 3000);
 
-
-setInterval(function () {
+function autoscale() {
+  console.log("Looking to autoscale")
   if( !isNaN(global.presentTime) && global.presentTime!=0) {
+  console.log("autoscaling")
   projected = parseInt(global.jsonAutoscaleObject[""+global.presentTime])
-  projected = projected + (0.1*projected)
+  projected = projected 
   console.log(global.presentTime)
   console.log(global.jsonAutoscaleObject[""+global.presentTime])
-  scale = Math.floor(projected/6)+1;
+  scale = Math.floor(projected/3);
   str12 = "kubectl scale --replicas="+scale+" deployment.apps/mydeployment"
-  
+
   console.log(str12)
+
+//	  process.exit()
   exec(str12, (err, stdout, stderr) => {
     if (err) {
       // node couldn't execute the command
@@ -108,7 +111,10 @@ setInterval(function () {
 
   });
   }
-}, 300000);
+}
+
+
+setInterval(autoscale, 300000);
 
 
 setInterval(function () {
@@ -140,24 +146,26 @@ setInterval(function () {
   linearr = line.toString().split(',');
   numRequests = linearr[RSUNum+1];
   global.presentTime = linearr[0];
-  numRequests = numRequests / 2;
+  numRequests = numRequests;
   numRequests = parseInt(numRequests, 10);
 
   console.log(global.presentTime+","+numRequests);
   global.reqid = global.reqid + 1;
 
-
-/*
+//For Prediction
   for (let i = 0; i < numRequests; i++) {
     axios.get("http://192.168.58.2/hello?num="+global.reqid, {
        headers: {
 	       'Host': 'hello-world.example'
        },
-      timeout: 1000,
+      timeout: 200,
       httpAgent: new http.Agent({ keepAlive: true })
     })
-*/
  
+  
+
+  //For RPS
+/*
  
   for (let i = 0; i < numRequests; i++) {
     // console.log("hi-"+i);
@@ -168,16 +176,17 @@ setInterval(function () {
       timeout: 300,
     })
 
+*/
       .then((response) => {
         // console.log("SUCCESS");
         loggerSuccFail.info(global.presentTime+","+response.data+","+response.duration);
-        console.info(global.presentTime+"="+response.data);
+        console.info(global.presentTime+"="+response.data+"="+numRequests);
       
       }).catch((error) => {
         // console.log("Fail");
         console.log("Error,"+error);
         loggerSuccFail.info(global.presentTime+",Fail,"+error.duration);
-        console.info(global.presentTime+"=Fail");
+        console.info(global.presentTime+"=Fail"+"="+numRequests);
       });
   }
 }, 1000);
@@ -221,7 +230,7 @@ function createRequests() {
 }
 
 parseJSONObject()
-
+setTimeout(autoscale, 2000);
 
 
 

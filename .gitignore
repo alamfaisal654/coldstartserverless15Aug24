@@ -1,4 +1,5 @@
 Scripts/DifferentKs/
+Scripts/Output/
 Scripts/SingleRSUDifferentKs/
 Scripts/node_modules/
 **/*.pkl

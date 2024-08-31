@@ -17,18 +17,18 @@ from pathlib import Path
 #Reading the dataset
 class applyLinearReg:
     def __init__(self):
-##        self.applyLinearRegressionModels()
-        self.generateRegressionMSEReport()
+        self.applyLinearRegressionModels()
+##        self.generateRegressionMSEReport()
 
     def applyLinearRegressionModels(self):
-        numminutes = 12
-        RegrType = "Elastic"
+        numminutes = 10
+        RegrType = "Linear"
         numJunctions = self.getNumJunctions()
         for RSUNum in range(numJunctions):
             folder = "./SingleRSUDifferentKs/K"+str(numminutes)
             modelFolder = folder+"/"+RegrType
             print("Reading Data")
-            df = pd.read_csv(folder+"/TestingRegressionDatasetRSU"+str(RSUNum)+".csv")
+            df = pd.read_csv(folder+"/TestingMSEDatasetRSU"+str(RSUNum)+".csv")
             print("Read The Data")
             numX = numminutes* 60
             X_header = ['X_'+str(x) for x in range(numX)]
