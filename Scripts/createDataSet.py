@@ -1,5 +1,6 @@
 import sys
 import  pandas as pd
+import os
 
 class createDataSet:
     def __init__(self,ratecsv, dataset, num_input_minutes, num_output_minutes):
@@ -7,6 +8,7 @@ class createDataSet:
         self.num_input_rows = 60*num_input_minutes
         self.num_output_rows = 60*num_output_minutes
         self.dataset = dataset
+        os.makedirs(os.path.dirname(dataset), exist_ok=True)
         self.file_pointer = open(dataset,'w')
         self.parseCSV()
         self.file_pointer.close()
