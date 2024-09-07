@@ -23,10 +23,12 @@ import math
 
 #Reading the dataset
 class applyLinearReg:
-    def __init__(self, numMinutes, RegrType):
-        numinput = 60*numMinutes
+    def __init__(self, num_input_minutes, num_output_minutes, RegrType):
+        numinput = 60*num_input_minutes
+        numoutput = 60*num_output_minutes
         self.numinput = numinput
-        self.folder = "./DifferentKs/K"+str(numMinutes)
+        self.numoutput = numoutput
+        self.folder = ".AllDatasets/Last"+str(num_input_minutes)+"/Future"+str(num_output_minutes)
         self.modelFolder = self.folder+"/"+RegrType
         print(self.modelFolder)
         os.makedirs(os.path.dirname(self.modelFolder+'/abc'), exist_ok=True)
@@ -208,12 +210,14 @@ class applyLinearReg:
     def getNumJunctions(self):
         junctions = parseRSUs()
         return len(junctions.keys())
-        
-if __name__ == "__main__":
-    numMinutes = int(sys.argv[1])
-    RegrType = sys.argv[2]
 
-    alr = applyLinearReg( numMinutes, RegrType)
+
+if __name__ == "__main__":
+    RegrType = sys.argv[1]
+    num_input_minutes = int(sys.argv[2])
+    num_output_minutes = int(sys.argv[3])
+
+    alr = applyLinearReg(num_input_minutes, num_output_minutes, RegrType)
     
     
     
