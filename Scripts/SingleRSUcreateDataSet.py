@@ -40,7 +40,7 @@ class createDataSet:
         
 
     def parseCSV(self, junction):
-        print("K="+str(self.num_input_minutes)+", Junction="+str(junction))
+        print( "Junction="+str(junction))
         fp = open(ratecsv,'r')
         data = fp.readlines()[1:]
         #Remove first column of seconds as sno
