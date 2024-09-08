@@ -28,7 +28,7 @@ class applyLinearReg:
         numoutput = 60*num_output_minutes
         self.numinput = numinput
         self.numoutput = numoutput
-        self.folder = ".AllDatasets/Last"+str(num_input_minutes)+"/Future"+str(num_output_minutes)
+        self.folder = "./AllDatasets/Last"+str(num_input_minutes)+"/Future"+str(num_output_minutes)
         self.modelFolder = self.folder+"/"+RegrType
         print(self.modelFolder)
         os.makedirs(os.path.dirname(self.modelFolder+'/abc'), exist_ok=True)
@@ -213,9 +213,9 @@ class applyLinearReg:
 
 
 if __name__ == "__main__":
-    RegrType = sys.argv[1]
-    num_input_minutes = int(sys.argv[2])
-    num_output_minutes = int(sys.argv[3])
+    num_input_minutes = int(sys.argv[1])
+    num_output_minutes = int(sys.argv[2])
+    RegrType = sys.argv[3]
 
     alr = applyLinearReg(num_input_minutes, num_output_minutes, RegrType)
     
