@@ -11,7 +11,7 @@ for i in "${lastvalarray[@]}"; do
 		# python3 SingleRSUcreateDataSet.py TestingMSEdump.csv "AllDatasets/Last$i/Future$j/" "$i" "$j" "$precursor"
 		# python3 SingleRSUcreateDataSet.py TestingRegressionDump.csv "AllDatasets/Last$i/Future$j/" "$i" "$j" "$precursor"
 		for k in "${arrReg[@]}"; do
-			python3 SingleRSUSaveRegressionModels "AllDatasets/Last$i/Future$j/" "$i" "$j" "$precursor" "$k"
+			python3 SingleRSUSaveRegressionModels.py "AllDatasets/Last$i/Future$j/" "$i" "$j" "$precursor" "$k"
 		done
 		rm AllDatasets/Last"$i"/Future"$j"/"$precursor"*.csv
 
