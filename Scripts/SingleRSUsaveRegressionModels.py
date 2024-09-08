@@ -23,7 +23,7 @@ import math
 
 #Reading the dataset
 class SingleRSUSaveRegressionModels:
-    def __init__(self,ratecsv, datasetfolder, num_input_minutes,
+    def __init__(self, datasetfolder, num_input_minutes,
                  num_output_minutes, precursor, RegrType):
 
         self.num_input_minutes = num_input_minutes
