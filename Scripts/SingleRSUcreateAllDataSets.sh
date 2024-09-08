@@ -2,7 +2,7 @@ declare -a lastvalarray=("2" "4" "6" "8" "10" "12" "14" "16" "18" "20")
 declare -a futurevalarray=("2" "4" "6" "8" "10" "12" "14" "16" "18" "20")
 declare -a arrReg=("Linear" "Elastic" "XGBoost" "RandomForest" "DTR" )
 echo "HELLO"
-precursor="TrainingDataset"
+precursor="SingleRSUTrainingDataset"
 for i in "${lastvalarray[@]}"; do
 	echo "HELLO1"
 	for j in "${futurevalarray[@]}"; do
