@@ -181,7 +181,7 @@ class SingleRSUSaveRegressionModels:
         print("Saving Model")
         X_header = ['X_'+str(x) for x in range(numX)]
         for RSUNum in range(numJunctions):
-            self.dataset = self.datasetfolder+"/"+precursor+"RSU"+str(junction)+".csv"
+            self.dataset = self.datasetfolder+"/"+precursor+"RSU"+str(RSUNum)+".csv"
             # self.dataset = self.folder+'/TrainingDatasetRSU'+str(RSUNum)+'.csv'
             df = pd.read_csv(self.dataset, sep=',', engine='c', na_filter=False, dtype=np.int16, low_memory=False)
             print("Completed Reading Dataset"+"==="+str(type(df.iloc[1,1])))
