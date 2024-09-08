@@ -22,16 +22,20 @@ import pickle
 import math
 
 #Reading the dataset
-class applyLinearReg:
-    def __init__(self, numMinutes, RegrType):
-        numinput = 60*numMinutes
-        self.numinput = numinput
+class SingleRSUSaveRegressionModels:
+    def __init__(self,ratecsv, datasetfolder, num_input_minutes,
+                 num_output_minutes, precursor, RegrType):
+
+        self.num_input_minutes = num_input_minutes
+        self.num_input_rows = 60*num_input_minutes
+        self.num_output_rows = 60*num_output_minutes
+        self.precursor = precursor
+        self.datasetfolder = datasetfolder
         self.RegrType = RegrType
-        self.folder = "./SingleRSUDifferentKs/K"+str(numMinutes)
-        self.modelFolder = self.folder+"/"+RegrType
+
+        self.modelFolder = self.datasetfolder+"/"+RegrType
         os.makedirs(os.path.dirname(self.modelFolder+'/abc'), exist_ok=True)
-        
-        self.numinput = numinput
+
         self.saveRegressionModels()
 
     def saveLinearRegression(self, RSUNum, x_train, y_train):
@@ -43,7 +47,7 @@ class applyLinearReg:
         #mlr = pickle.load(open('modelRSU_'+str(RSUNum)+'.pkl', 'rb'))
 ##        y_pred= mlr.predict(data_X)
 
-        with open(self.modelFolder+'/modelRSU_'+str(RSUNum)+'.pkl','wb') as f:
+        with open(self.modelFolder+'/SingleRSUmodelRSU_'+str(RSUNum)+'.pkl','wb') as f:
             print("Model="+'modelRSU_'+str(RSUNum))
             pickle.dump(mlr,f)
         print("Finished Saving Linear Regression")
@@ -60,7 +64,7 @@ class applyLinearReg:
         print("Starting Saving Polynomial Regression")
         #mlr = pickle.load(open('modelRSU_'+str(RSUNum)+'.pkl', 'rb'))
 ##        y_pred= mlr.predict(data_X)
-        with open(self.modelFolder+'/modelRSU_'+str(RSUNum)+'.pkl','wb') as f:
+        with open(self.modelFolder+'/SingleRSUmodelRSU_'+str(RSUNum)+'.pkl','wb') as f:
             print("Model="+'modelRSU_'+str(RSUNum))
             pickle.dump(mlr,f)
         print("Finished Saving Polynomial Regression")
@@ -74,7 +78,7 @@ class applyLinearReg:
         print("Starting Saving ElasticNet Regression")
         #mlr = pickle.load(open('modelRSU_'+str(RSUNum)+'.pkl', 'rb'))
 ##        y_pred= mlr.predict(data_X)
-        with open(self.modelFolder+'/modelRSU_'+str(RSUNum)+'.pkl','wb') as f:
+        with open(self.modelFolder+'/SingleRSUmodelRSU_'+str(RSUNum)+'.pkl','wb') as f:
             print("Model="+'modelRSU_'+str(RSUNum))
             pickle.dump(mlr,f)
         print("Finished Saving ElasticNet Regression")
@@ -89,7 +93,7 @@ class applyLinearReg:
         print("Starting Saving XGBoost Regression")
         #mlr = pickle.load(open('modelRSU_'+str(RSUNum)+'.pkl', 'rb'))
 ##        y_pred= mlr.predict(data_X)
-        with open(self.modelFolder+'/modelRSU_'+str(RSUNum)+'.pkl','wb') as f:
+        with open(self.modelFolder+'/SingleRSUmodelRSU_'+str(RSUNum)+'.pkl','wb') as f:
             print("Model="+'modelRSU_'+str(RSUNum))
             pickle.dump(xgb_r,f)
         print("Finished Saving XGBoost Regression")
@@ -103,7 +107,7 @@ class applyLinearReg:
         print("Starting Saving RandomForest Regression")
         #mlr = pickle.load(open('modelRSU_'+str(RSUNum)+'.pkl', 'rb'))
 ##        y_pred= mlr.predict(data_X)
-        with open(self.modelFolder+'/modelRSU_'+str(RSUNum)+'.pkl','wb') as f:
+        with open(self.modelFolder+'/SingleRSUmodelRSU_'+str(RSUNum)+'.pkl','wb') as f:
             print("Model="+'modelRSU_'+str(RSUNum))
             pickle.dump(mlr,f)
         print("Finished Saving RandomForest Regression")
@@ -117,7 +121,7 @@ class applyLinearReg:
         print("Starting Saving RandomForest Regression")
         #mlr = pickle.load(open('modelRSU_'+str(RSUNum)+'.pkl', 'rb'))
 ##        y_pred= mlr.predict(data_X)
-        with open(self.modelFolder+'/modelRSU_'+str(RSUNum)+'.pkl','wb') as f:
+        with open(self.modelFolder+'/SingleRSUmodelRSU_'+str(RSUNum)+'.pkl','wb') as f:
             print("Model="+'modelRSU_'+str(RSUNum))
             pickle.dump(mlr,f)
         print("Finished Saving RandomForest Regression")
@@ -130,7 +134,7 @@ class applyLinearReg:
         print("Starting Saving DecisionTree Regression")
         #mlr = pickle.load(open('modelRSU_'+str(RSUNum)+'.pkl', 'rb'))
 ##        y_pred= mlr.predict(data_X)
-        with open(self.modelFolder+'/modelRSU_'+str(RSUNum)+'.pkl','wb') as f:
+        with open(self.modelFolder+'/SingleRSUmodelRSU_'+str(RSUNum)+'.pkl','wb') as f:
             print("Model="+'modelRSU_'+str(RSUNum))
             pickle.dump(mlr,f)
         print("Finished Saving DecisionTree Regression")
@@ -144,7 +148,7 @@ class applyLinearReg:
         print("Starting Saving SVR Regression")
         #mlr = pickle.load(open('modelRSU_'+str(RSUNum)+'.pkl', 'rb'))
 ##        y_pred= mlr.predict(data_X)
-        with open(self.modelFolder+'/modelRSU_'+str(RSUNum)+'.pkl','wb') as f:
+        with open(self.modelFolder+'/SingleRSUmodelRSU_'+str(RSUNum)+'.pkl','wb') as f:
             print("Model="+'modelRSU_'+str(RSUNum))
             pickle.dump(mlr,f)
         print("Finished Saving SVR Regression")
@@ -163,7 +167,7 @@ class applyLinearReg:
         print("Starting Saving MLP Regression")
         #mlr = pickle.load(open('modelRSU_'+str(RSUNum)+'.pkl', 'rb'))
 ##        y_pred= mlr.predict(data_X)
-        with open(self.modelFolder+'/modelRSU_'+str(RSUNum)+'.pkl','wb') as f:
+        with open(self.modelFolder+'/SingleRSUmodelRSU_'+str(RSUNum)+'.pkl','wb') as f:
             print("Model="+'modelRSU_'+str(RSUNum))
             pickle.dump(mlr,f)
         print("Finished Saving MLP Regression")
@@ -173,12 +177,12 @@ class applyLinearReg:
     def saveRegressionModels(self):
         print("Reading Dataset")
         numJunctions = self.getNumJunctions()
-        numX = self.numinput
-        print(self.numinput)
-        print(numX)
+        numX = self.num_input_rows
+        print("Saving Model")
         X_header = ['X_'+str(x) for x in range(numX)]
         for RSUNum in range(numJunctions):
-            self.dataset = self.folder+'/TrainingDatasetRSU'+str(RSUNum)+'.csv'
+            self.dataset = self.datasetfolder+"/"+precursor+"RSU"+str(junction)+".csv"
+            # self.dataset = self.folder+'/TrainingDatasetRSU'+str(RSUNum)+'.csv'
             df = pd.read_csv(self.dataset, sep=',', engine='c', na_filter=False, dtype=np.int16, low_memory=False)
             print("Completed Reading Dataset"+"==="+str(type(df.iloc[1,1])))
             data_X = df[X_header]
@@ -210,9 +214,19 @@ class applyLinearReg:
         return len(junctions.keys())
         
 if __name__ == "__main__":
-    numMinutes = int(sys.argv[1])
-    RegrType = sys.argv[2]
-    alr = applyLinearReg( numMinutes, RegrType)
+    # numMinutes = int(sys.argv[1])
+    # RegrType = sys.argv[2]
+    # alr = SingleRSUSaveRegressionModels( numMinutes, RegrType)
+
+    datasetfolder = sys.argv[1]
+    print(datasetfolder)
+    num_input_minutes = int(sys.argv[2])
+    num_output_minutes = int(sys.argv[3])
+    precursor = sys.argv[4]
+    RegrType = sys.argv[5]
+
+    grps  = SingleRSUSaveRegressionModels(datasetfolder, num_input_minutes,
+                          num_output_minutes, precursor, RegrType)
     
     
     

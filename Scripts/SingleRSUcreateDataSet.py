@@ -10,7 +10,8 @@ class createDataSet:
         self.num_input_rows = 60*num_input_minutes
         self.num_output_rows = 60*num_output_minutes
         self.precursor = precursor
-        self.datasetfolder = datasetfolder+"/K"+str(num_input_minutes)
+        self.datasetfolder = datasetfolder
+        # self.datasetfolder = datasetfolder+"/K"+str(num_input_minutes)
         self.numJunctions = self.getNumJunctions()
         for junction in range(self.numJunctions):
             filename = self.datasetfolder+"/"+precursor+"RSU"+str(junction)+".csv"
@@ -87,7 +88,6 @@ if __name__ == "__main__":
     num_input_minutes = int(sys.argv[3])
     num_output_minutes = int(sys.argv[4])
     precursor = sys.argv[5]
-    
     
     grps  = createDataSet(ratecsv, datasetfolder, num_input_minutes,
                           num_output_minutes, precursor)
