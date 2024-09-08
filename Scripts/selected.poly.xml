@@ -1,0 +1,17 @@
+<additional>
+    <poi id="poi_abc_1" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.772277" lon="11.427911"/>
+    <poi id="poi_abc_3" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.773230" lon="11.422941"/>
+    <poi id="poi_abc_4" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.775193" lon="11.417123"/>
+    <poi id="poi_abc_5" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.769193" lon="11.428930"/>
+    <poi id="poi_abc_6" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.769561" lon="11.433611"/>
+    <poi id="poi_abc_7" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.769449" lon="11.421305"/>
+    <poi id="poi_abc_8" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.767969" lon="11.430715"/>
+    <poi id="poi_abc_9" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.772035" lon="11.431354"/>
+    <poi id="poi_abc_11" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.775208" lon="11.425091"/>
+    <poi id="poi_abc_12" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.779290" lon="11.434521"/>
+    <poi id="poi_abc_13" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.771944" lon="11.419722"/>
+    <poi id="poi_abc_14" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.769806" lon="11.433822"/>
+    <poi id="poi_abc_15" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.778801" lon="11.424957"/>
+    <poi id="poi_abc_16" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.779901" lon="11.415437"/>
+    <poi id="poi_abc_17" type="natural" color="red" imgFile="red.png" width="180" height="180" layer="5.00" lat="48.774812" lon="11.437101"/>
+</additional>

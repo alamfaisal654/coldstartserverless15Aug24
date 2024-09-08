@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 def parseRSUs():
     junctions = {}
 ##    RSUFile = self.RSUFile
-    RSUFile = "/pvol/InTAS/scenario/selected.poly.xml"
+    RSUFile = "selected.poly.xml"
     root = ET.parse(RSUFile).getroot()
     for poi in root.findall('poi'):
         attributes = poi.attrib
