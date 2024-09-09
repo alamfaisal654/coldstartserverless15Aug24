@@ -13,7 +13,6 @@ class createDataSet:
         self.datasetfolder = datasetfolder
         # self.datasetfolder = datasetfolder+"/K"+str(num_input_minutes)
         self.numJunctions = self.getNumJunctions()
-        self.numJunctions = 1
         for junction in range(self.numJunctions):
             filename = self.datasetfolder+"/"+precursor+"RSU"+str(junction)+".csv"
             self.file_pointer = open(filename,'w')

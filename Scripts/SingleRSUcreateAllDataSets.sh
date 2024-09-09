@@ -1,6 +1,9 @@
-declare -a lastvalarray=("2" "4" "6" "8" "10" "12" "14" "16" "18" "20")
-declare -a futurevalarray=("2" "4" "6" "8" "10" "12" "14" "16" "18" "20")
-declare -a arrReg=("Linear" "Elastic" "XGBoost" "RandomForest" "DTR" )
+#declare -a lastvalarray=("2" "4" "6" "8" "10" "12" "14" "16" "18" "20")
+#declare -a futurevalarray=("2" "4" "6" "8" "10" "12" "14" "16" "18" "20")
+declare -a lastvalarray=("6" "12" "18")
+declare -a futurevalarray=("6" "12" "18")
+#declare -a arrReg=("Linear" "Elastic" "XGBoost" "RandomForest" "DTR" )
+declare -a arrReg=("Linear" "Elastic" "XGBoost")
 echo "HELLO"
 precursor="SingleRSUTrainingDataset"
 for i in "${lastvalarray[@]}"; do
