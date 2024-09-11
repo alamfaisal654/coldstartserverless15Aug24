@@ -1,20 +1,56 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mydeployment
+  name: mydeploymentrsu0
   labels:
     app: myapp
-    tier: frontend
+    tier: rsu0
 spec:
   # modify replicas according to your case
   replicas: 3
   selector:
     matchLabels:
-      tier: frontend
+      tier: rsu0
   template:
     metadata:
       labels:
-        tier: frontend
+        tier: rsu0
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2 
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploymentrsu1
+  labels:
+    app: myapp
+    tier: rsu1
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu1
+  template:
+    metadata:
+      labels:
+        tier: rsu1
     spec:
       containers:
         - name: mynode
@@ -33,3 +69,493 @@ spec:
             initialDelaySeconds: 2
       terminationGracePeriodSeconds: 2
 
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploymentrsu2
+  labels:
+    app: myapp
+    tier: rsu2
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu2
+  template:
+    metadata:
+      labels:
+        tier: rsu2
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploymentrsu3
+  labels:
+    app: myapp
+    tier: rsu3
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu3
+  template:
+    metadata:
+      labels:
+        tier: rsu3
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2
+  
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploymentrsu4
+  labels:
+    app: myapp
+    tier: rsu4
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu4
+  template:
+    metadata:
+      labels:
+        tier: rsu4
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2
+  
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploymentrsu5
+  labels:
+    app: myapp
+    tier: rsu5
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu5
+  template:
+    metadata:
+      labels:
+        tier: rsu5
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2
+  
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploymentrsu6
+  labels:
+    app: myapp
+    tier: rsu6
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu6
+  template:
+    metadata:
+      labels:
+        tier: rsu6
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2
+  
+  
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploymentrsu7
+  labels:
+    app: myapp
+    tier: rsu7
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu7
+  template:
+    metadata:
+      labels:
+        tier: rsu7
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2
+  
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploymentrsu8
+  labels:
+    app: myapp
+    tier: rsu8
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu8
+  template:
+    metadata:
+      labels:
+        tier: rsu8
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2
+  
+  
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploymentrsu9
+  labels:
+    app: myapp
+    tier: rsu9
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu9
+  template:
+    metadata:
+      labels:
+        tier: rsu9
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2
+  
+  
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploymentrsu10
+  labels:
+    app: myapp
+    tier: rsu10
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu10
+  template:
+    metadata:
+      labels:
+        tier: rsu10
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2
+  
+  
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploymentrsu11
+  labels:
+    app: myapp
+    tier: rsu11
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu11
+  template:
+    metadata:
+      labels:
+        tier: rsu11
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2
+  
+  
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeploymentrsu12
+  labels:
+    app: myapp
+    tier: rsu12
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu12
+  template:
+    metadata:
+      labels:
+        tier: rsu12
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2
+  
+---
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment13
+  labels:
+    app: myapp
+    tier: rsu13
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu13
+  template:
+    metadata:
+      labels:
+        tier: rsu13
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2
+
+---
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mydeployment14
+  labels:
+    app: myapp
+    tier: rsu14
+spec:
+  # modify replicas according to your case
+  replicas: 3
+  selector:
+    matchLabels:
+      tier: rsu14
+  template:
+    metadata:
+      labels:
+        tier: rsu14
+    spec:
+      containers:
+        - name: mynode
+          image: alamfaisal654/succ3rps:1.1.1
+          ports:
+            - containerPort: 3040
+          livenessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+          readinessProbe:
+            httpGet:
+              port: 3040
+              path: "/alive"
+            initialDelaySeconds: 2
+      terminationGracePeriodSeconds: 2  
+  
+ 

@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: example-ingress
+  name: example-ingressrsu0
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
@@ -10,10 +10,339 @@ spec:
     - host: hello-world.example
       http:
         paths:
-          - path: /
+          - path: /rsu0q
             pathType: Prefix
             backend:
               service:
-                name: helloworld-go
+                name: helloworld-gorsu0
+                port:
+                  number: 8030
+  
+---
+
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu1
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu1q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu1
+                port:
+                  number: 8031
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu2
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu2q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu2
+                port:
+                  number: 8032
+                  
+
+---
+
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu3
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu3q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu3
+                port:
+                  number: 8033
+
+
+
+---
+
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu4
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu4q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu4
+                port:
+                  number: 8034
+
+
+
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu5
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu5q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu5
+                port:
+                  number: 8035
+
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu6
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu6q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu6
+                port:
+                  number: 8036
+
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu7
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu7q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu7
                 port:
                   number: 8037
+
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu8
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu8q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu8
+                port:
+                  number: 8038
+
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu9
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu9q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu9
+                port:
+                  number: 8039
+
+
+ 
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu10
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu10q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu10
+                port:
+                  number: 8040
+ 
+ 
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu11
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu11q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu11
+                port:
+                  number: 8041
+ 
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu12
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu12q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu12
+                port:
+                  number: 8042
+ 
+ 
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu13
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu13q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu13
+                port:
+                  number: 8043
+ 
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingressrsu14
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: hello-world.example
+      http:
+        paths:
+          - path: /rsu14q
+            pathType: Prefix
+            backend:
+              service:
+                name: helloworld-gorsu14
+                port:
+                  number: 8044
+ 
+  
+  

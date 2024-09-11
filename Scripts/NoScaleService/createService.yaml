@@ -1,11 +1,159 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: helloworld-go
+  name: helloworld-gorsu0
 spec:
   selector:
-    tier: frontend
+    tier: rsu0
   clusterIP: 10.99.132.220
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8030
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.202
+  type: LoadBalancer
+  
+  
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu1
+spec:
+  selector:
+    tier: rsu1
+  clusterIP: 10.99.132.221
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8031
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.201
+  type: LoadBalancer
+  
+  
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu2
+spec:
+  selector:
+    tier: rsu2
+  clusterIP: 10.99.132.222
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8032
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.202
+  type: LoadBalancer
+  
+  
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu3
+spec:
+  selector:
+    tier: rsu3
+  clusterIP: 10.99.132.223
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8033
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.203
+  type: LoadBalancer
+  
+  
+  
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu4
+spec:
+  selector:
+    tier: rsu4
+  clusterIP: 10.99.132.224
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8034
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.204
+  type: LoadBalancer
+  
+  
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu5
+spec:
+  selector:
+    tier: rsu5
+  clusterIP: 10.99.132.225
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8035
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.205
+  type: LoadBalancer
+  
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu6
+spec:
+  selector:
+    tier: rsu6
+  clusterIP: 10.99.132.226
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8036
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.206
+  type: LoadBalancer
+  
+  
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu7
+spec:
+  selector:
+    tier: rsu7
+  clusterIP: 10.99.132.227
   externalTrafficPolicy: Cluster
   ports:
   - name: myport
@@ -13,6 +161,151 @@ spec:
     protocol: TCP
     targetPort: 3040
   externalIPs:
-  - 118.138.240.202
+  - 118.138.240.207
   type: LoadBalancer
+ 
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu8
+spec:
+  selector:
+    tier: rsu8
+  clusterIP: 10.99.132.228
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8038
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.208
+  type: LoadBalancer
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu9
+spec:
+  selector:
+    tier: rsu9
+  clusterIP: 10.99.132.229
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8039
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.209
+  type: LoadBalancer 
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu10
+spec:
+  selector:
+    tier: rsu10
+  clusterIP: 10.99.132.230
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8040
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.210
+  type: LoadBalancer 
   
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu11
+spec:
+  selector:
+    tier: rsu11
+  clusterIP: 10.99.132.231
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8041
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.211
+  type: LoadBalancer 
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu12
+spec:
+  selector:
+    tier: rsu12
+  clusterIP: 10.99.132.232
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8042
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.212
+  type: LoadBalancer 
+ 
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu13
+spec:
+  selector:
+    tier: rsu13
+  clusterIP: 10.99.132.233
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8043
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.213
+  type: LoadBalancer 
+
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld-gorsu14
+spec:
+  selector:
+    tier: rsu14
+  clusterIP: 10.99.132.234
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: myport
+    port: 8044
+    protocol: TCP
+    targetPort: 3040
+  externalIPs:
+  - 118.138.240.214
+  type: LoadBalancer 
