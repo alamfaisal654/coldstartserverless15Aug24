@@ -1,6 +1,7 @@
 import sys
 import  pandas as pd
 from utils import *
+import os
 
 class createDataSet:
     def __init__(self,ratecsv, datasetfolder, num_input_minutes,
@@ -15,6 +16,7 @@ class createDataSet:
         self.numJunctions = self.getNumJunctions()
         for junction in range(self.numJunctions):
             filename = self.datasetfolder+"/"+precursor+"RSU"+str(junction)+".csv"
+            os.makedirs(os.path.dirname(filename), exist_ok=True)
             self.file_pointer = open(filename,'w')
             self.parseCSV(junction)
             self.file_pointer.close()
@@ -88,6 +90,5 @@ if __name__ == "__main__":
     num_input_minutes = int(sys.argv[3])
     num_output_minutes = int(sys.argv[4])
     precursor = sys.argv[5]
-    
     grps  = createDataSet(ratecsv, datasetfolder, num_input_minutes,
                           num_output_minutes, precursor)

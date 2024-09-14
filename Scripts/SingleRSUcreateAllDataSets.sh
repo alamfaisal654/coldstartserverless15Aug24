@@ -5,18 +5,19 @@ declare -a futurevalarray=("6" "12" "18")
 #declare -a arrReg=("Linear" "Elastic" "XGBoost" "RandomForest" "DTR" )
 declare -a arrReg=("Linear" "Elastic" "XGBoost")
 echo "HELLO"
-precursor="SingleRSUTrainingDataset"
+precursor="SingleRSUTestingMSE"
 for i in "${lastvalarray[@]}"; do
 	echo "HELLO1"
 	for j in "${futurevalarray[@]}"; do
 		echo "HELLO2"
-		python3 SingleRSUcreateDataSet.py Trainingdump.csv  "AllDatasets/Last$i/Future$j/" "$i" "$j" "$precursor"
-		# python3 SingleRSUcreateDataSet.py TestingMSEdump.csv "AllDatasets/Last$i/Future$j/" "$i" "$j" "$precursor"
+		# python3 SingleRSUcreateDataSet.py Trainingdump.csv  "AllDatasets/Last$i/Future$j/" "$i" "$j" "$precursor"
+		python3 SingleRSUcreateDataSet.py TestingMSEdump.csv "AllDatasets/Last$i/Future$j/" "$i" "$j" "$precursor"
 		# python3 SingleRSUcreateDataSet.py TestingRegressionDump.csv "AllDatasets/Last$i/Future$j/" "$i" "$j" "$precursor"
 		for k in "${arrReg[@]}"; do
-			python3 SingleRSUsaveRegressionModels.py "AllDatasets/Last$i/Future$j/" "$i" "$j" "$precursor" "$k"
+			# python3 SingleRSUsaveRegressionModels.py "AllDatasets/Last$i/Future$j/" "$i" "$j" "$precursor" "$k"
+			python3 SingleRSUapplyRegressions.py "$precursor" "AllDatasets/Last$i/Future$j/" "$i" "$j"  "$k"
 		done
-		rm AllDatasets/Last"$i"/Future"$j"/"$precursor"*.csv
+		# rm AllDatasets/Last"$i"/Future"$j"/"$precursor"*.csv
 
 	done
 done
