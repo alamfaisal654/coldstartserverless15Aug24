@@ -16,29 +16,66 @@ from pathlib import Path
 
 #Reading the dataset
 class applyLinearReg:
-    def __init__(self):
-        self.applyLinearRegressionModels()
+    def __init__(self,datasetname,datasetfolder, num_input_minutes, num_output_minutes, RegrType):
+        self.datasetname = datasetname
+        self.num_input_minutes = num_input_minutes
+        self.num_input_rows = 60*num_input_minutes
+        self.num_output_rows = 60*num_output_minutes
+        self.datasetfolder = datasetfolder
+        self.RegrType = RegrType
+        self.modelFolder = self.datasetfolder+"/"+RegrType
+        self.applyRegressionModels()
 ##        self.generateRegressionMSEReport()
 
-    def applyLinearRegressionModels(self):
-        numminutes = 10
-        RegrType = "Linear"
+    # def applyLinearRegressionModels(self):
+    #     numminutes = 10
+    #     RegrType = "Linear"
+    #     numJunctions = self.getNumJunctions()
+    #     for RSUNum in range(numJunctions):
+    #         folder = "./SingleRSUDifferentKs/K"+str(numminutes)
+    #         modelFolder = folder+"/"+RegrType
+    #         print("Reading Data")
+    #         df = pd.read_csv(folder+"/TestingMSEDatasetRSU"+str(RSUNum)+".csv")
+    #         print("Read The Data")
+    #         numX = numminutes* 60
+    #         X_header = ['X_'+str(x) for x in range(numX)]
+    #         print(X_header)
+    #         data_X = df[X_header]
+    #         data_y = df['Y_0']
+    #         x_train, y_train = (data_X, data_y)
+    #         mlr = pickle.load(open(modelFolder+'/modelRSU_'+str(RSUNum)+'.pkl', 'rb'))
+    #         y_pred= mlr.predict(data_X)
+    #         f = open(modelFolder+"/RSUPrediction_"+str(RSUNum)+".json", "w")
+    #         f.write("{"+'\n')
+    #         count = 0
+    #         numRows,numcols = data_X.shape
+    #         for ind in data_X.index:
+    #             str12 = "\""+str(df['Timestep'][ind])+"\"" + ":" + "\""+str(math.ceil(y_pred[ind]))+"\","
+    #             if count==numRows-1:
+    #                 str12 = "\""+str(df['Timestep'][ind])+"\"" + ":" + "\""+str(math.ceil(y_pred[ind]))+"\""
+    #             f.write(str12+'\n')
+    #             print(str12)
+    #             count = count + 1
+    #         f.write("}"+'\n')
+    #         f.close()
+
+    def applyRegressionModels(self):
+        num_input_minutes = 10
+        RegrType = self.RegrType
         numJunctions = self.getNumJunctions()
         for RSUNum in range(numJunctions):
-            folder = "./SingleRSUDifferentKs/K"+str(numminutes)
-            modelFolder = folder+"/"+RegrType
             print("Reading Data")
-            df = pd.read_csv(folder+"/TestingMSEDatasetRSU"+str(RSUNum)+".csv")
+            df = pd.read_csv(self.datasetfolder+"/"+self.datasetname+"RSU"+str(RSUNum)+".csv")
             print("Read The Data")
-            numX = numminutes* 60
-            X_header = ['X_'+str(x) for x in range(numX)]
+            X_header = ['X_'+str(x) for x in range(self.num_input_rows)]
             print(X_header)
             data_X = df[X_header]
             data_y = df['Y_0']
             x_train, y_train = (data_X, data_y)
-            mlr = pickle.load(open(modelFolder+'/modelRSU_'+str(RSUNum)+'.pkl', 'rb'))
+            model = self.modelFolder+'/SingleRSUmodelRSU_'+str(RSUNum)+'.pkl'
+            mlr = pickle.load( open(model, 'rb'))
             y_pred= mlr.predict(data_X)
-            f = open(modelFolder+"/RSUPrediction_"+str(RSUNum)+".json", "w")
+            f = open(self.modelFolder+"/RSUPrediction_"+str(RSUNum)+".json", "w")
             f.write("{"+'\n')
             count = 0
             numRows,numcols = data_X.shape
@@ -95,7 +132,15 @@ class applyLinearReg:
         
 
 if __name__ == "__main__":
-    alr = applyLinearReg()
+    datasetname = sys.argv[1]
+    print(datasetname)
+    datasetfolder = sys.argv[2]
+    print(datasetfolder)
+    num_input_minutes = int(sys.argv[3])
+    num_output_minutes = int(sys.argv[4])
+    RegrType = sys.argv[5]
+
+    alr = applyLinearReg(datasetname,datasetfolder, num_input_minutes, num_output_minutes, RegrType)
     
     
     
