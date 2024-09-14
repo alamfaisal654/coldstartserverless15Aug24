@@ -14,7 +14,6 @@ var FUTURE = process.argv[4];
 var RSUNum = parseInt(process.argv[5]);
 var RegrType = process.argv[6];
 var scalerType = process.argv[7];
-var numParRequest = parseInt(process.argv[8]);
 
 
 
@@ -111,7 +110,7 @@ function autoscale() {
     projected = projected
     console.log(global.presentTime)
     console.log(global.jsonAutoscaleObject["" + global.presentTime])
-    scale = Math.floor(projected / numParRequest);
+    scale = Math.floor(projected);
     str12 = "kubectl scale --replicas=" + scale + " deployment.apps/mydeploymentrsu" + RSUNum
     console.log(str12)
 
