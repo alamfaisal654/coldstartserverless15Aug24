@@ -22,7 +22,7 @@ import pickle
 import math
 
 #Reading the dataset
-class applyLinearReg:
+class saveRegModels:
     def __init__(self, num_input_minutes, num_output_minutes, RegrType):
         numinput = 60*num_input_minutes
         numoutput = 60*num_output_minutes
@@ -217,7 +217,7 @@ if __name__ == "__main__":
     num_output_minutes = int(sys.argv[2])
     RegrType = sys.argv[3]
 
-    alr = applyLinearReg(num_input_minutes, num_output_minutes, RegrType)
+    alr = saveRegModels(num_input_minutes, num_output_minutes, RegrType)
     
     
     

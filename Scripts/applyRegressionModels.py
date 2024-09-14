@@ -15,50 +15,34 @@ from sklearn.metrics import mean_squared_error
 from pathlib import Path
 
 #Reading the dataset
-class applyLinearReg:
-    def __init__(self):
-#        self.folder = "./DifferentKs/K"+str(numinput)
-#        self.modelFolder = self.folder+"/"+RegrType
-#        print(self.modelFolder)
-#        self.dataset = self.folder+'/TrainingDataset.csv'
-#        self.numinput = numinput
-#        self.RegrType = RegrType
-##        if self.RegrType == "Linear":
-##            self.folder = "LinearRegression"
-##        elif self.RegrType == "Poly":
-##            self.folder = "PolyRegression"
-##        elif self.RegrType == "Elastic":
-##            self.folder = "ElasticNetRegression"
-##        elif self.RegrType == "XGBoost":
-##            self.folder = "XGBoostRegression"
-##        elif self.RegrType == "RandomForest":
-##            self.folder = "RandomForestRegression"
-##        elif self.RegrType == "SVR":
-##            self.folder = "SVRRegression"
-##        elif self.RegrType == "MLP":
-##            self.folder = "MLPRegression"
-##        else:
-##            print("Incorrect Model Mentioned")
-        self.applyLinearRegressionModels()
+class applyRegressionModels:
+    def __init__(self, datasetname, num_input_minutes, num_output_minutes, RegrType):
+        self.num_input_minutes = num_input_minutes
+        self.num_input_rows = 60*num_input_minutes
+        self.num_output_rows = 60*num_output_minutes
+        self.datasetfolder = "./AllDatasets/Last"+str(num_input_minutes)+"/Future"+str(num_output_minutes)
+        self.modelFolder = self.datasetfolder+"/"+RegrType
+        self.dataset = self.datasetfolder+"/"+datasetname
+        print(self.modelFolder)
+
+        self.applyRegression()
 ##        self.generateRegressionMSEReport()
 
-    def applyLinearRegressionModels(self):
+    def applyRegression(self):
         print("Reading Data")
-        df = pd.read_csv("DifferentKs/K12/TestingMSEDataset.csv")
-        print("Read The Data")
-        numminutes = 12
-        RegrType = "Elastic"
+        df = pd.read_csv(self.dataset)
         numJunctions = self.getNumJunctions()
-        numX = numminutes* 60 * numJunctions
+        numX = self.num_input_rows * numJunctions
         X_header = ['X_'+str(x) for x in range(numX)]
         print(X_header)
         data_X = df[X_header]
         for RSUNum in range(numJunctions):
             data_y = df['Y_'+str(RSUNum)]
             x_train, y_train = (data_X, data_y)
-            mlr = pickle.load(open('DifferentKs/K'+str(numminutes)+'/'+RegrType+'/modelRSU_'+str(RSUNum)+'.pkl', 'rb'))
+            model = self.modelFolder+'/modelRSU_'+str(RSUNum)+'.pkl'
+            mlr = pickle.load(open(model, 'rb'))
             y_pred= mlr.predict(data_X)
-            f = open("DifferentKs/K"+str(numminutes)+"/"+RegrType+"/RSUPrediction_"+str(RSUNum)+".json", "w")
+            f = open(self.modelFolder+"/RSUPrediction_"+str(RSUNum)+".json", "w")
             f.write("{"+'\n')
             count = 0
             numRows,numcols = data_X.shape
@@ -115,7 +99,12 @@ class applyLinearReg:
         
 
 if __name__ == "__main__":
-    alr = applyLinearReg()
+    datasetname = sys.argv[1]
+    print(datasetname)
+    num_input_minutes = int(sys.argv[2])
+    num_output_minutes = int(sys.argv[3])
+    RegrType = sys.argv[4]
+    alr = applyRegressionModels(datasetname, num_input_minutes, num_output_minutes, RegrType)
     
     
     
