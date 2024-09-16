@@ -19,8 +19,8 @@ for i in "${lastvalarray[@]}"; do
 			echo "HE"
 			for m in {0..14}; do
 				echo "RSU=$m"
-				echo "node RequestGenerator.js TestingRegressionDump.csv 6 6 0 Linear SngleRSU 5"
-				node RequestGenerator.js TestingRegressionDump.csv "$i" "$j" "$m" "$k" SngleRSU
+				echo "node RequestGenerator.js TestingRegressionDump.csv 6 6 0 Linear SingleRSU 1"
+				node RequestGenerator.js TestingRegressionDump.csv "$i" "$j" "$m" "$k" SingleRSU 1 
 			done
 			sleep 70m
 		done

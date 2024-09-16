@@ -16,6 +16,7 @@ var RegrType = process.argv[6];
 var scalerType = process.argv[7];
 var numParRequest = parseInt(process.argv[8]);
 
+console.log("NumParReq="+numParRequest);
 
 
 //Create Folder for Logging
@@ -23,12 +24,19 @@ var modelFolder = ""
 var logFolder = ""
 if (RegrType != "NONE") {
   modelFolder = "./AllDatasets/Last" + LAST + "/Future" + FUTURE + "/" + RegrType
-  logFolder = modelFolder + "/" + scalerType
+
+  logFolder = modelFolder + "/" + scalerType + "/" + "numRPS" + numParRequest
 
 } else {
   modelFolder = "./AllDatasets/Last" + LAST + "/Future" + FUTURE + "/"
-  logFolder = modelFolder + "/" + scalerType
+  logFolder = modelFolder + "/" + scalerType + "/" + "numRPS" + numParRequest
 }
+
+
+
+console.log("logFolder="+logFolder)
+
+
 if (!fs.existsSync(logFolder)) {
   fs.mkdirSync(logFolder);
 }
@@ -44,21 +52,21 @@ jsonAutoscaleObject = {}
 const loggerSuccFail = winston.createLogger({
   format: winston.format.simple(),
   transports: [
-    new winston.transports.File({ filename: logFolder + '/succFail.log', options: { flags: 'w' } })
+    new winston.transports.File({ filename: logFolder + "/RSU"+RSUNum + 'succFail.log', options: { flags: 'w' } })
   ]
 });
 
 const logNumReplicas = winston.createLogger({
   format: winston.format.simple(),
   transports: [
-    new winston.transports.File({ filename: logFolder + '/numReplicas.log', options: { flags: 'w' } })
+    new winston.transports.File({ filename: logFolder + "/RSU"+RSUNum + 'numReplicas.log', options: { flags: 'w' } })
   ]
 });
 
 const logNumReplicasError = winston.createLogger({
   format: winston.format.simple(),
   transports: [
-    new winston.transports.File({ filename: logFolder + '/numReplicasError.log', options: { flags: 'w' } })
+    new winston.transports.File({ filename: logFolder + "/RSU"+RSUNum + 'numReplicasError.log', options: { flags: 'w' } })
   ]
 });
 
@@ -173,7 +181,7 @@ setInterval(function () {
 
   //For Prediction
   for (let i = 0; i < numRequests; i++) {
-    axios.get("http://192.168.49.2/rsu"+RSUNum+"q", {
+    axios.get("http://192.168.58.2/rsu"+RSUNum+"q", {
       headers: {
         'Host': 'hello-world.example'
       },
