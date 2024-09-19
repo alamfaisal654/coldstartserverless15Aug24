@@ -21,8 +21,8 @@ for i in "${lastvalarray[@]}"; do
 			echo "HE"
 			for m in "${allRSUs[@]}"; do
 				echo "RSU=$m"
-				echo "RequestGenerator.js TestingRegressionDump.csv $i $j $m $k SingleRSU 1 "
-				node RequestGenerator.js TestingRegressionDump.csv "$i" "$j" "$m" "$k" SingleRSU 1 
+				echo "RequestGenerator.js TestingRegressionDump.csv $i $j $m $k SingleRSU 3 "
+				node RequestGenerator.js TestingRegressionDump.csv "$i" "$j" "$m" "$k" SingleRSU 3
 			done
 		done
 		# rm AllDatasets/Last"$i"/Future"$j"/"$precursor"*.csv

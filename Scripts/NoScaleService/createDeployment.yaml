@@ -29,7 +29,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
           readinessProbe:
             httpGet:
               port: 3040
@@ -77,7 +77,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
@@ -129,7 +129,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
@@ -179,7 +179,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
@@ -230,7 +230,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
@@ -281,7 +281,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
@@ -333,7 +333,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
@@ -385,7 +385,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
@@ -437,7 +437,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
@@ -489,7 +489,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
@@ -541,7 +541,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
@@ -593,7 +593,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
@@ -644,7 +644,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
@@ -696,7 +696,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
@@ -748,7 +748,7 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
-            periodSeconds: 1
+            periodSeconds: 60
             failureThreshold: 20
           readinessProbe:
             httpGet:
