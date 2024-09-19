@@ -38,7 +38,7 @@ console.log("logFolder="+logFolder)
 
 
 if (!fs.existsSync(logFolder)) {
-  fs.mkdirSync(logFolder);
+  fs.mkdirSync(logFolder, { recursive: true });
 }
 
 previousTime = 0;
@@ -141,7 +141,7 @@ function autoscale() {
     });
   }
 }
-setInterval(autoscale, parseInt(FUTURE)*1000);
+setInterval(autoscale, parseInt(FUTURE)*60*1000);
 
 
 setInterval(function () {
@@ -175,6 +175,7 @@ setInterval(function () {
   global.presentTime = linearr[0];
   numRequests = numRequests;
   numRequests = parseInt(numRequests, 10);
+  printStr = "==Last="+LAST+" FUTURE="+FUTURE+" RSUNum="+RSUNum+" numParRequest="+numParRequest;
 
   console.log(global.presentTime + "," + numRequests);
   global.reqid = global.reqid + 1;
@@ -206,13 +207,13 @@ setInterval(function () {
       .then((response) => {
         // console.log("SUCCESS");
         loggerSuccFail.info(global.presentTime + "," + response.data + "," + response.duration);
-        console.info(global.presentTime + "=" + response.data + "=" + numRequests);
+        console.info(global.presentTime + "=" + response.data + "=" + numRequests+printStr);
 
       }).catch((error) => {
         // console.log("Fail");
         console.log("Error," + error);
         loggerSuccFail.info(global.presentTime + ",Fail," + error.duration);
-        console.info(global.presentTime + "=Fail" + "=" + numRequests);
+        console.info(global.presentTime + "=Fail" + "=" + numRequests+printStr);
       });
   }
 }, 1000);

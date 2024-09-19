@@ -7,7 +7,7 @@ metadata:
     tier: rsu0
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu0
@@ -29,11 +29,20 @@ spec:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"
       terminationGracePeriodSeconds: 2 
 ---
 
@@ -46,7 +55,7 @@ metadata:
     tier: rsu1
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu1
@@ -62,17 +71,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"
       terminationGracePeriodSeconds: 2
 
 
@@ -87,7 +107,7 @@ metadata:
     tier: rsu2
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu2
@@ -103,17 +123,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"            
       terminationGracePeriodSeconds: 2
 ---
 
@@ -126,7 +157,7 @@ metadata:
     tier: rsu3
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu3
@@ -142,17 +173,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"            
       terminationGracePeriodSeconds: 2
   
 ---
@@ -166,7 +208,7 @@ metadata:
     tier: rsu4
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu4
@@ -182,17 +224,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"
       terminationGracePeriodSeconds: 2
   
 ---
@@ -206,7 +259,7 @@ metadata:
     tier: rsu5
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu5
@@ -222,17 +275,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"            
       terminationGracePeriodSeconds: 2
   
 
@@ -247,7 +311,7 @@ metadata:
     tier: rsu6
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu6
@@ -263,17 +327,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"            
       terminationGracePeriodSeconds: 2
   
   
@@ -288,7 +363,7 @@ metadata:
     tier: rsu7
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu7
@@ -304,17 +379,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"            
       terminationGracePeriodSeconds: 2
   
 
@@ -329,7 +415,7 @@ metadata:
     tier: rsu8
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu8
@@ -345,17 +431,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"            
       terminationGracePeriodSeconds: 2
   
   
@@ -370,7 +467,7 @@ metadata:
     tier: rsu9
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu9
@@ -386,17 +483,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"            
       terminationGracePeriodSeconds: 2
   
   
@@ -411,7 +519,7 @@ metadata:
     tier: rsu10
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu10
@@ -427,17 +535,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"            
       terminationGracePeriodSeconds: 2
   
   
@@ -452,7 +571,7 @@ metadata:
     tier: rsu11
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu11
@@ -468,17 +587,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"            
       terminationGracePeriodSeconds: 2
   
   
@@ -492,7 +622,7 @@ metadata:
     tier: rsu12
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu12
@@ -508,17 +638,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"            
       terminationGracePeriodSeconds: 2
   
 ---
@@ -527,13 +668,13 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mydeployment13
+  name: mydeploymentrsu13
   labels:
     app: myapp
     tier: rsu13
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu13
@@ -549,17 +690,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"            
       terminationGracePeriodSeconds: 2
 
 ---
@@ -568,13 +720,13 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mydeployment14
+  name: mydeploymentrsu14
   labels:
     app: myapp
     tier: rsu14
 spec:
   # modify replicas according to your case
-  replicas: 3
+  replicas: 0
   selector:
     matchLabels:
       tier: rsu14
@@ -590,17 +742,28 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"            
+              value: "3"            
           livenessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
           readinessProbe:
             httpGet:
               port: 3040
               path: "/"
             initialDelaySeconds: 2
+            periodSeconds: 1
+            failureThreshold: 20
+          resources:
+            requests:
+              memory: "40M"
+              cpu: "5m"
+            limits:
+              memory: "50M"
+              cpu: "10m"            
       terminationGracePeriodSeconds: 2  
   
  

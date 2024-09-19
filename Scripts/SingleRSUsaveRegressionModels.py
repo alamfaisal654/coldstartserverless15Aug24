@@ -32,7 +32,6 @@ class SingleRSUSaveRegressionModels:
         self.precursor = precursor
         self.datasetfolder = datasetfolder
         self.RegrType = RegrType
-
         self.modelFolder = self.datasetfolder+"/"+RegrType
         os.makedirs(os.path.dirname(self.modelFolder+'/abc'), exist_ok=True)
 
@@ -72,7 +71,7 @@ class SingleRSUSaveRegressionModels:
 
     def saveElasticNetRegression(self, RSUNum, x_train, y_train):
         print("Starting Fitting ElasticNet Regression")
-        mlr = ElasticNet(alpha=1.0, l1_ratio=0.5)
+        mlr = ElasticNet(alpha=100, l1_ratio=1)
         mlr.fit(x_train, y_train)
         print("Completed Fitting ElasticNet  Regression")
         print("Starting Saving ElasticNet Regression")
