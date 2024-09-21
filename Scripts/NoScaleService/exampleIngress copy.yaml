@@ -4,8 +4,6 @@ metadata:
   name: example-ingressrsu0
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"       
 spec:
   ingressClassName: nginx
   rules:
@@ -29,8 +27,6 @@ metadata:
   name: example-ingressrsu1
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"    
 spec:
   ingressClassName: nginx
   rules:
@@ -52,8 +48,6 @@ metadata:
   name: example-ingressrsu2
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"   
 spec:
   ingressClassName: nginx
   rules:
@@ -78,8 +72,6 @@ metadata:
   name: example-ingressrsu3
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"       
 spec:
   ingressClassName: nginx
   rules:
@@ -105,8 +97,6 @@ metadata:
   name: example-ingressrsu4
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"       
 spec:
   ingressClassName: nginx
   rules:
@@ -132,8 +122,6 @@ metadata:
   name: example-ingressrsu5
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"       
 spec:
   ingressClassName: nginx
   rules:
@@ -157,8 +145,6 @@ metadata:
   name: example-ingressrsu6
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"       
 spec:
   ingressClassName: nginx
   rules:
@@ -182,8 +168,6 @@ metadata:
   name: example-ingressrsu7
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"       
 spec:
   ingressClassName: nginx
   rules:
@@ -207,8 +191,6 @@ metadata:
   name: example-ingressrsu8
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"       
 spec:
   ingressClassName: nginx
   rules:
@@ -232,8 +214,6 @@ metadata:
   name: example-ingressrsu9
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"       
 spec:
   ingressClassName: nginx
   rules:
@@ -258,8 +238,6 @@ metadata:
   name: example-ingressrsu10
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"       
 spec:
   ingressClassName: nginx
   rules:
@@ -283,8 +261,6 @@ metadata:
   name: example-ingressrsu11
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"       
 spec:
   ingressClassName: nginx
   rules:
@@ -308,8 +284,6 @@ metadata:
   name: example-ingressrsu12
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"       
 spec:
   ingressClassName: nginx
   rules:
@@ -333,8 +307,6 @@ metadata:
   name: example-ingressrsu13
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"       
 spec:
   ingressClassName: nginx
   rules:
@@ -358,8 +330,6 @@ metadata:
   name: example-ingressrsu14
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    nginx.ingress.kubernetes.io/keepalive: "0"
-    nginx.ingress.kubernetes.io/proxy-connect-timeout: "0s"       
 spec:
   ingressClassName: nginx
   rules:

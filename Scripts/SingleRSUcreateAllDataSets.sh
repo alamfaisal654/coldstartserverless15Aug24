@@ -23,7 +23,10 @@ for i in "${lastvalarray[@]}"; do
 				echo "RSU=$m"
 				echo "RequestGenerator.js TestingRegressionDump.csv $i $j $m $k SingleRSU 3 "
 				node RequestGenerator.js TestingRegressionDump.csv "$i" "$j" "$m" "$k" SingleRSU 3
+				 kubectl delete -f NoScaleService/createDeployment.yaml 
+				  kubectl apply -f NoScaleService/createDeployment.yaml 
 			done
+
 		done
 		# rm AllDatasets/Last"$i"/Future"$j"/"$precursor"*.csv
 

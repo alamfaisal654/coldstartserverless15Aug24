@@ -8,6 +8,7 @@ const winston = require('winston');
 const http = require('http')
 
 
+
 var FILE = process.argv[2];
 var LAST = process.argv[3];
 var FUTURE = process.argv[4];
@@ -18,6 +19,9 @@ var numParRequest = parseInt(process.argv[8]);
 
 console.log("NumParReq="+numParRequest);
 
+
+axios.defaults.timeout = 1
+axios.defaults.httpAgent = new http.Agent({ timeout: 1 })
 
 //Create Folder for Logging
 var modelFolder = ""
@@ -141,7 +145,7 @@ function autoscale() {
     });
   }
 }
-setInterval(autoscale, parseInt(FUTURE)*60*1000);
+
 
 
 setInterval(function () {
@@ -164,7 +168,7 @@ setInterval(function () {
 
 
 
-setInterval(function () {
+setInterval(async function () {
 
   line = requestFile.next();
   if (!line)
@@ -180,14 +184,16 @@ setInterval(function () {
   console.log(global.presentTime + "," + numRequests);
   global.reqid = global.reqid + 1;
 
+
+  const httpAgent = new http.Agent({ keepAlive: false });
   //For Prediction
   for (let i = 0; i < numRequests; i++) {
-    axios.get("http://192.168.58.2/rsu"+RSUNum+"q", {
+    await axios.get("http://192.168.58.2/rsu"+RSUNum+"q", {
       headers: {
         'Host': 'hello-world.example'
       },
-      timeout: 200,
-      httpAgent: new http.Agent({ keepAlive: true })
+      timeout: 1000,
+      httpAgent: new http.Agent({ keepAlive: false })
     })
 
 
@@ -219,8 +225,7 @@ setInterval(function () {
 }, 1000);
 
 parseJSONObject()
-setTimeout(autoscale, 2000);
-
-
+setInterval(autoscale, parseInt(FUTURE)*60*1000);
+setTimeout(autoscale, 5000);
 
 
