@@ -23,7 +23,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "1"
+              value: "7"  
           livenessProbe:
             httpGet:
               port: 3040
@@ -71,7 +71,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040
@@ -90,7 +90,7 @@ spec:
               cpu: "50m"
             limits:
               memory: "100M"
-              cpu: "100m"
+              cpu: "100m"        
       terminationGracePeriodSeconds: 2
 
 
@@ -121,7 +121,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040
@@ -169,7 +169,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040
@@ -218,7 +218,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040
@@ -267,7 +267,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040
@@ -317,7 +317,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040
@@ -367,7 +367,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040
@@ -417,7 +417,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040
@@ -467,7 +467,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040
@@ -517,7 +517,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040
@@ -567,7 +567,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040
@@ -616,7 +616,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040
@@ -666,7 +666,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040
@@ -716,7 +716,7 @@ spec:
             - containerPort: 3040
           env:
             - name: numRPS
-              value: "3"            
+              value: "7"              
           livenessProbe:
             httpGet:
               port: 3040

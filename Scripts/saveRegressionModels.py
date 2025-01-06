@@ -71,7 +71,7 @@ class saveRegModels:
 
     def saveElasticNetRegression(self, RSUNum, x_train, y_train):
         print("Starting Fitting ElasticNet Regression")
-        mlr = ElasticNet(alpha=1.0, l1_ratio=0.5)
+        mlr = ElasticNet(alpha=10, l1_ratio=1)
         mlr.fit(x_train, y_train)
         print("Completed Fitting ElasticNet  Regression")
         print("Starting Saving ElasticNet Regression")

@@ -6,8 +6,8 @@ const axios = require('axios');
 const { exec } = require('child_process');
 const winston = require('winston');
 const http = require('http')
-
-
+http.globalAgent.maxSockets = 200;
+vehicleReqInterval=2
 
 var FILE = process.argv[2];
 var LAST = process.argv[3];
@@ -19,9 +19,6 @@ var numParRequest = parseInt(process.argv[8]);
 
 console.log("NumParReq="+numParRequest);
 
-
-axios.defaults.timeout = 1
-axios.defaults.httpAgent = new http.Agent({ timeout: 1 })
 
 //Create Folder for Logging
 var modelFolder = ""
@@ -117,17 +114,17 @@ setInterval(function () {
 
 function autoscale() {
   console.log("Looking to autoscale")
+  console.log(global.presentTime)
   if (!isNaN(global.presentTime) && global.presentTime != 0) {
     console.log("autoscaling")
     projected = parseInt(global.jsonAutoscaleObject["" + global.presentTime])
     projected = projected
     console.log(global.presentTime)
     console.log(global.jsonAutoscaleObject["" + global.presentTime])
-    scale = Math.floor(projected / numParRequest);
+    scale = Math.floor(projected / numParRequest);  
+    scale = Math.floor(scale / vehicleReqInterval);
     str12 = "kubectl scale --replicas=" + scale + " deployment.apps/mydeploymentrsu" + RSUNum
     console.log(str12)
-
-    //	  process.exit()
     exec(str12, (err, stdout, stderr) => {
       if (err) {
         // node couldn't execute the command
@@ -168,6 +165,71 @@ setInterval(function () {
 
 
 
+
+async function fetchInParallel(numRequests) {
+  const urls = [];
+  for (let kk = 0; kk < numRequests; kk++) {
+    urls.push(kk)
+  }
+  // try {
+    const requests = urls.map(url => 
+      
+      axios.get("http://192.168.49.2/rsu"+RSUNum+"q", {
+        // await axios.get("http://localhost:24242", {
+        headers: {
+          'Host': 'hello-world.example'
+        },
+        timeout: 1000,
+        httpAgent: new http.Agent({ keepAlive: false })
+      })
+        //For RPS
+        /*
+         
+          for (let i = 0; i < numRequests; i++) {
+            // console.log("hi-"+i);
+            axios.get("http://192.168.58.2:32708", {
+               headers: {
+                 'Host': 'helloworld-go.default.example.com'
+               },
+              timeout: 300,
+            })
+        
+        */ 
+        .then((response) => {
+          // console.log("SUCCESS");
+          loggerSuccFail.info(global.presentTime + "," + response.data + "," + response.duration);
+          console.log(global.presentTime + "=" + response.data + "=" + "--"+ numRequests+printStr);
+  
+        }).catch((error) => {
+          // console.log("Fail");
+          // console.log("Error," + error);
+          loggerSuccFail.info(global.presentTime + ",Fail," + error.duration);
+          console.log(global.presentTime + "=Fail=" + "--"+ numRequests+printStr);
+        })
+  
+  
+  
+  );
+    const responses = await Promise.all(requests);
+    
+    // Log each response
+    // responses.forEach(response => {
+    //   console.log(response.data);
+    //   // console.log("SUCCESS");
+    //   loggerSuccFail.info(global.presentTime + "," + response.data + "," + response.duration);
+    //   console.info(global.presentTime + "=" + response.data + "=" + numRequests+printStr);
+    // });
+  // } catch (error) {
+  //   console.log("Error," + error);
+  //   loggerSuccFail.info(global.presentTime + ",Fail," + error.duration);
+  //   console.info(global.presentTime + "=Fail" + "=" + numRequests+printStr);
+  // }
+}
+
+
+
+
+
 setInterval(async function () {
 
   line = requestFile.next();
@@ -179,24 +241,30 @@ setInterval(async function () {
   global.presentTime = linearr[0];
   numRequests = numRequests;
   numRequests = parseInt(numRequests, 10);
-  printStr = "==Last="+LAST+" FUTURE="+FUTURE+" RSUNum="+RSUNum+" numParRequest="+numParRequest;
+  numRequests = Math.floor(numRequests/vehicleReqInterval);
+  printStr =  "--NumRequests"+ numRequests+"==Last="+LAST+" FUTURE="+FUTURE+" RSUNum="+RSUNum+" numParRequest="+numParRequest;
 
   console.log(global.presentTime + "," + numRequests);
   global.reqid = global.reqid + 1;
 
 
   const httpAgent = new http.Agent({ keepAlive: false });
+
+  fetchInParallel(numRequests);
+  
+/*
   //For Prediction
-  for (let i = 0; i < numRequests; i++) {
-    await axios.get("http://192.168.58.2/rsu"+RSUNum+"q", {
+  
+  for (let kk = 0; kk < numRequests; kk++) {
+    console.log("I="+kk);
+    await axios.get("http://192.168.49.2/rsu"+RSUNum+"q", {
+      // await axios.get("http://localhost:24242", {
       headers: {
         'Host': 'hello-world.example'
       },
       timeout: 1000,
       httpAgent: new http.Agent({ keepAlive: false })
     })
-
-
       //For RPS
       /*
        
@@ -209,23 +277,24 @@ setInterval(async function () {
             timeout: 300,
           })
       
-      */
+      */ /*
       .then((response) => {
         // console.log("SUCCESS");
         loggerSuccFail.info(global.presentTime + "," + response.data + "," + response.duration);
-        console.info(global.presentTime + "=" + response.data + "=" + numRequests+printStr);
+        console.log(global.presentTime + "=" + response.data + "=" + "--"+ numRequests+printStr);
 
       }).catch((error) => {
         // console.log("Fail");
-        console.log("Error," + error);
+        // console.log("Error," + error);
         loggerSuccFail.info(global.presentTime + ",Fail," + error.duration);
-        console.info(global.presentTime + "=Fail" + "=" + numRequests+printStr);
+        console.log(global.presentTime + "=Fail=" + "--"+ numRequests+printStr);
       });
   }
+      */
 }, 1000);
 
 parseJSONObject()
 setInterval(autoscale, parseInt(FUTURE)*60*1000);
-setTimeout(autoscale, 5000);
+setTimeout(autoscale, 3000);
 
 
